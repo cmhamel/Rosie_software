@@ -10,76 +10,82 @@
         '
         ' this handles any initial setup and setting of defaults for the software
         '
+        Dim reader As New IO.StreamReader(My.Computer.FileSystem.CurrentDirectory + "\PrintSettings.txt")
         ' first set default optomec settings
         '
-        Optomec_x_offset.Text = "5"
-        Optomec_y_offset.Text = "5"
-        Optomec_z_offset.Text = "1"
+        Optomec_x_offset.Text = reader.ReadLine()
+        Optomec_y_offset.Text = reader.ReadLine()
+        Optomec_z_offset.Text = reader.ReadLine()
         '
-        Optomec_printing_speed.Text = "2"
+        Optomec_printing_speed.Text = reader.ReadLine()
         '
-        Optomec_dwell_time.Text = ".025"
+        NonPrintingSpeed.Text = reader.ReadLine()
+        '
+        Optomec_dwell_time.Text = reader.ReadLine()
         '
         ' Now for DIW Left
         '
-        DIWLeft_x_offset.Text = "495"
-        DIWLeft_y_offset.Text = "250"
-        ZZ3_offset.Text = "231"
+        DIWLeft_x_offset.Text = reader.ReadLine()
+        DIWLeft_y_offset.Text = reader.ReadLine()
+        ZZ3_offset.Text = reader.ReadLine()
         '
-        DIWLeft_printing_speed.Text = "10"
+        DIWLeft_printing_speed.Text = reader.ReadLine()
         '
-        DIWLeft_dwell_time.Text = ".25"
+        DIWLeft_dwell_time.Text = reader.ReadLine()
+        '
+        UVCureSpeed.Text = reader.ReadLine()
         '
         ' Now for DIW Right
         '
-        DIWRight_x_offset.Text = "555"
-        DIWRight_y_offset.Text = "250"
+        DIWRight_x_offset.Text = reader.ReadLine()
+        DIWRight_y_offset.Text = reader.ReadLine()
         '
-        DIWRight_printing_speed.Text = "10"
+        DIWRight_printing_speed.Text = reader.ReadLine()
         '
-        DIWRight_dwell_time.Text = ".25"
+        DIWRight_dwell_time.Text = reader.ReadLine()
         '
         ' Now for FDM Left
         '
-        FDMLeft_x_offset.Text = "499"
-        FDMLeft_y_offset.Text = "78.377"
+        FDMLeft_x_offset.Text = reader.ReadLine()
+        FDMLeft_y_offset.Text = reader.ReadLine()
         '
-        FDMLeft_printing_speed.Text = "60"
+        FDMLeft_printing_speed.Text = reader.ReadLine()
         '
-        FDMLeft_stepper_extruder.Text = "180"
-        FDMLeft_retraction_steps.Text = "200"
+        FDMLeft_stepper_extruder.Text = reader.ReadLine()
+        FDMLeft_retraction_steps.Text = reader.ReadLine()
         '
-        FDMLeft_dwell_time.Text = ".05"
+        FDMLeft_dwell_time.Text = reader.ReadLine()
         '
         ' Now for FDM Right
         '
-        FDMRight_x_offset.Text = "499"
-        FDMRight_y_offset.Text = "78.377"
+        FDMRight_x_offset.Text = reader.ReadLine()
+        FDMRight_y_offset.Text = reader.ReadLine()
         '
-        FDMRight_printing_speed.Text = "60"
+        FDMRight_printing_speed.Text = reader.ReadLine()
         '
-        FDMRight_stepper_extruder.Text = "180"
-        FDMRight_retraction_steps.Text = "200"
+        FDMRight_stepper_extruder.Text = reader.ReadLine()
+        FDMRight_retraction_steps.Text = reader.ReadLine()
         '
-        FDMRight_dwell_time.Text = ".05"
+        FDMRight_dwell_time.Text = reader.ReadLine()
         '
         ' Default non printing speed for all other motions
         '
-        NonPrintingSpeed.Text = "30"
+        'NonPrintingSpeed.Text = "30"
         '
         ' Inkjet defaults
         '
-        Inkjet_layers_per_pass.Text = "8"
-        Inkjet_layer_thickness.Text = "0.03"
-        StartingZHeight.Text = "229.45"
+        Inkjet_layers_per_pass.Text = reader.ReadLine()
+        Inkjet_layer_thickness.Text = reader.ReadLine()
+        StartingZHeight.Text = reader.ReadLine()
         '
         ' UV cure speed
         '
-        UVCureSpeed.Text = "20"
+        'UVCureSpeed.Text = "20"
         UVCureSpeed.Enabled = True
         '
         ' more to come
         '
+        reader.Close()
     End Sub
     '
     ' Export gcode button
@@ -821,7 +827,70 @@
         '
         Dim message = String.Join(Environment.NewLine, post.ToArray())
         ProcessedGcode.Text = message
+        '
+        ' save offsets to text file
+        '
+        saveSettings()
     End Sub
-
     '
+    ' function for writing offsets and other settings
+    '
+    Public Function saveSettings()
+        Dim FileName As String = My.Computer.FileSystem.CurrentDirectory + "\PrintSettings.txt"
+        Dim objWriter As New System.IO.StreamWriter(FileName, False)
+        '
+        ' optomec settings
+        '
+        objWriter.WriteLine(Optomec_x_offset.Text.ToString)
+        objWriter.WriteLine(Optomec_y_offset.Text.ToString)
+        objWriter.WriteLine(Optomec_z_offset.Text.ToString)
+        objWriter.WriteLine(Optomec_printing_speed.Text.ToString)
+        '
+        objWriter.WriteLine(NonPrintingSpeed.Text.ToString)
+        objWriter.WriteLine(Optomec_dwell_time.Text.ToString)
+        '
+        ' DIW Left setting
+        '
+        objWriter.WriteLine(DIWLeft_x_offset.Text.ToString)
+        objWriter.WriteLine(DIWLeft_y_offset.Text.ToString)
+        objWriter.WriteLine(ZZ3_offset.Text.ToString)
+        objWriter.WriteLine(DIWLeft_printing_speed.Text.ToString)
+        objWriter.WriteLine(DIWLeft_dwell_time.Text.ToString)
+        objWriter.WriteLine(UVCureSpeed.Text.ToString)
+        '
+        ' DIW Right setting
+        '
+        objWriter.WriteLine(DIWRight_x_offset.Text.ToString)
+        objWriter.WriteLine(DIWRight_y_offset.Text.ToString)
+        objWriter.WriteLine(DIWRight_printing_speed.Text.ToString)
+        objWriter.WriteLine(DIWRight_dwell_time.Text.ToString)
+        '
+        ' FDM Left settings
+        '
+        objWriter.WriteLine(FDMLeft_x_offset.Text.ToString)
+        objWriter.WriteLine(FDMLeft_y_offset.Text.ToString)
+        objWriter.WriteLine(FDMLeft_printing_speed.Text.ToString)
+        objWriter.WriteLine(FDMLeft_stepper_extruder.Text.ToString)
+        objWriter.WriteLine(FDMLeft_retraction_steps.Text.ToString)
+        objWriter.WriteLine(FDMLeft_dwell_time.Text.ToString)
+        '
+        ' FDM Right settings
+        '
+        objWriter.WriteLine(FDMRight_x_offset.Text.ToString)
+        objWriter.WriteLine(FDMRight_y_offset.Text.ToString)
+        objWriter.WriteLine(FDMRight_printing_speed.Text.ToString)
+        objWriter.WriteLine(FDMRight_stepper_extruder.Text.ToString)
+        objWriter.WriteLine(FDMRight_retraction_steps.Text.ToString)
+        objWriter.WriteLine(FDMRight_dwell_time.Text.ToString)
+        '
+        ' Inkjet settings
+        '
+        objWriter.WriteLine(Inkjet_layers_per_pass.Text.ToString)
+        objWriter.WriteLine(Inkjet_layer_thickness.Text.ToString)
+        objWriter.WriteLine(StartingZHeight.Text.ToString)
+        '
+        ' close the writer
+        '
+        objWriter.Close()
+    End Function
 End Class

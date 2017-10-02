@@ -31,3 +31,14 @@ C:\Users\droach6\Desktop\Printer_software_many_version\v4\PrinterSoftware\Printe
 C:\Users\droach6\Desktop\Printer_software_many_version\v4\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Form1.resources
 C:\Users\droach6\Desktop\Printer_software_many_version\v4\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Resources.resources
 C:\Users\droach6\Desktop\Printer_software_many_version\v4\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.GenerateResource.Cache
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.exe.config
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.exe
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.xml
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.pdb
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.exe
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.pdb
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.xml
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbprojResolveAssemblyReference.cache
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Form1.resources
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Resources.resources
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.GenerateResource.Cache
