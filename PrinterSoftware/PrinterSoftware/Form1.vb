@@ -1,5 +1,10 @@
 ﻿Public Class Form1
     '
+    ' Inkjet process global variable
+    '
+    Dim xusb_demo As String = "C:\Program Files\Xaar\Scorpion\Source\XUSB Demo\Debug\XUSB Demo.exe"
+    Dim InkjetProcess As Process
+    '
     ' This snippet of code handles the import gcode button
     ' it opens a dialog box to find a file 
     '
@@ -893,4 +898,22 @@
         '
         objWriter.Close()
     End Function
+
+    Private Sub StartInkjet_Click(sender As Object, e As EventArgs) Handles StartInkjet.Click
+        '
+        ' button to start up inkjet software from this software
+        '
+
+        '
+        ' start up inkjet software
+        '
+        InkjetProcess = System.Diagnostics.Process.Start(xusb_demo)
+    End Sub
+
+    Private Sub KillInkjet_Click(sender As Object, e As EventArgs) Handles KillInkjet.Click
+        '
+        ' button to shutdown inkjet software from this software
+        '
+        InkjetProcess.Kill()
+    End Sub
 End Class
