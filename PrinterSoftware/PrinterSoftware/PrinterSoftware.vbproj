@@ -46,6 +46,14 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aerotech.A3200, Version=5.4.3.6, Culture=neutral, PublicKeyToken=478e72719c32735e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Aerotech\A3200\DotNet\Aerotech.A3200.dll</HintPath>
+    </Reference>
+    <Reference Include="Aerotech.Common, Version=3.13.0.107, Culture=neutral, PublicKeyToken=478e72719c32735e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Aerotech\A3200\DotNet\Aerotech.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />

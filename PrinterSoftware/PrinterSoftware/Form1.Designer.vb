@@ -109,6 +109,21 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.StartInkjet = New System.Windows.Forms.Button()
         Me.KillInkjet = New System.Windows.Forms.Button()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ExportRobotArmCode = New System.Windows.Forms.Button()
+        Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
+        Me.ConnectController = New System.Windows.Forms.Button()
+        Me.HomeX = New System.Windows.Forms.Button()
+        Me.MoveXLeft = New System.Windows.Forms.Button()
+        Me.MoveXRight = New System.Windows.Forms.Button()
+        Me.HomeYAxis = New System.Windows.Forms.Button()
+        Me.MoveYForward = New System.Windows.Forms.Button()
+        Me.MoveYBack = New System.Windows.Forms.Button()
+        Me.HomeOptomecAxis = New System.Windows.Forms.Button()
+        Me.MoveOptomecDown = New System.Windows.Forms.Button()
+        Me.MoveOptomecUp = New System.Windows.Forms.Button()
         Me.OffsetsAndOptions.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -141,9 +156,9 @@ Partial Class Form1
         Me.ToolSelections.CheckOnClick = True
         Me.ToolSelections.FormattingEnabled = True
         Me.ToolSelections.Items.AddRange(New Object() {"Optomec", "Photonic Cure", "FDM Left", "FDM Right", "DIW Left", "DIW Left UV Cure?", "DIW Right", "DIW Right UV Cure?", "Inkjet", "6 Axis Arm"})
-        Me.ToolSelections.Location = New System.Drawing.Point(327, 12)
+        Me.ToolSelections.Location = New System.Drawing.Point(327, 179)
         Me.ToolSelections.Name = "ToolSelections"
-        Me.ToolSelections.Size = New System.Drawing.Size(325, 349)
+        Me.ToolSelections.Size = New System.Drawing.Size(325, 199)
         Me.ToolSelections.TabIndex = 2
         '
         'TextBox1
@@ -157,7 +172,7 @@ Partial Class Form1
         'TextBox4
         '
         Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(167, 3)
+        Me.TextBox4.Location = New System.Drawing.Point(162, 3)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(86, 20)
         Me.TextBox4.TabIndex = 2
@@ -167,7 +182,7 @@ Partial Class Form1
         'TextBox3
         '
         Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(72, 3)
+        Me.TextBox3.Location = New System.Drawing.Point(70, 3)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(86, 20)
         Me.TextBox3.TabIndex = 1
@@ -186,7 +201,7 @@ Partial Class Form1
         'TextBox5
         '
         Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(264, 3)
+        Me.TextBox5.Location = New System.Drawing.Point(259, 3)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(82, 20)
         Me.TextBox5.TabIndex = 3
@@ -205,7 +220,7 @@ Partial Class Form1
         'Optomec_x_offset
         '
         Me.Optomec_x_offset.Enabled = False
-        Me.Optomec_x_offset.Location = New System.Drawing.Point(72, 38)
+        Me.Optomec_x_offset.Location = New System.Drawing.Point(70, 38)
         Me.Optomec_x_offset.Name = "Optomec_x_offset"
         Me.Optomec_x_offset.Size = New System.Drawing.Size(86, 20)
         Me.Optomec_x_offset.TabIndex = 5
@@ -266,7 +281,7 @@ Partial Class Form1
         Me.OffsetsAndOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
         Me.OffsetsAndOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
         Me.OffsetsAndOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
-        Me.OffsetsAndOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
+        Me.OffsetsAndOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122.0!))
         Me.OffsetsAndOptions.Controls.Add(Me.TextBox58, 7, 6)
         Me.OffsetsAndOptions.Controls.Add(Me.TextBox57, 6, 6)
         Me.OffsetsAndOptions.Controls.Add(Me.TextBox56, 5, 6)
@@ -341,7 +356,7 @@ Partial Class Form1
         '
         Me.TextBox58.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox58.Enabled = False
-        Me.TextBox58.Location = New System.Drawing.Point(661, 198)
+        Me.TextBox58.Location = New System.Drawing.Point(656, 198)
         Me.TextBox58.Name = "TextBox58"
         Me.TextBox58.Size = New System.Drawing.Size(101, 20)
         Me.TextBox58.TabIndex = 71
@@ -350,7 +365,7 @@ Partial Class Form1
         'TextBox57
         '
         Me.TextBox57.Enabled = False
-        Me.TextBox57.Location = New System.Drawing.Point(555, 198)
+        Me.TextBox57.Location = New System.Drawing.Point(550, 198)
         Me.TextBox57.Name = "TextBox57"
         Me.TextBox57.Size = New System.Drawing.Size(100, 20)
         Me.TextBox57.TabIndex = 70
@@ -360,7 +375,7 @@ Partial Class Form1
         '
         Me.TextBox56.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox56.Enabled = False
-        Me.TextBox56.Location = New System.Drawing.Point(447, 198)
+        Me.TextBox56.Location = New System.Drawing.Point(442, 198)
         Me.TextBox56.Name = "TextBox56"
         Me.TextBox56.Size = New System.Drawing.Size(101, 20)
         Me.TextBox56.TabIndex = 69
@@ -369,7 +384,7 @@ Partial Class Form1
         'TextBox55
         '
         Me.TextBox55.Enabled = False
-        Me.TextBox55.Location = New System.Drawing.Point(357, 198)
+        Me.TextBox55.Location = New System.Drawing.Point(352, 198)
         Me.TextBox55.Name = "TextBox55"
         Me.TextBox55.Size = New System.Drawing.Size(82, 20)
         Me.TextBox55.TabIndex = 68
@@ -379,7 +394,7 @@ Partial Class Form1
         '
         Me.TextBox54.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox54.Enabled = False
-        Me.TextBox54.Location = New System.Drawing.Point(661, 167)
+        Me.TextBox54.Location = New System.Drawing.Point(656, 167)
         Me.TextBox54.Name = "TextBox54"
         Me.TextBox54.Size = New System.Drawing.Size(101, 20)
         Me.TextBox54.TabIndex = 67
@@ -388,7 +403,7 @@ Partial Class Form1
         'FDMRight_dwell_time
         '
         Me.FDMRight_dwell_time.Enabled = False
-        Me.FDMRight_dwell_time.Location = New System.Drawing.Point(555, 167)
+        Me.FDMRight_dwell_time.Location = New System.Drawing.Point(550, 167)
         Me.FDMRight_dwell_time.Name = "FDMRight_dwell_time"
         Me.FDMRight_dwell_time.Size = New System.Drawing.Size(100, 20)
         Me.FDMRight_dwell_time.TabIndex = 66
@@ -398,7 +413,7 @@ Partial Class Form1
         '
         Me.TextBox52.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox52.Enabled = False
-        Me.TextBox52.Location = New System.Drawing.Point(447, 167)
+        Me.TextBox52.Location = New System.Drawing.Point(442, 167)
         Me.TextBox52.Name = "TextBox52"
         Me.TextBox52.Size = New System.Drawing.Size(101, 20)
         Me.TextBox52.TabIndex = 65
@@ -407,7 +422,7 @@ Partial Class Form1
         'FDMRight_printing_speed
         '
         Me.FDMRight_printing_speed.Enabled = False
-        Me.FDMRight_printing_speed.Location = New System.Drawing.Point(357, 167)
+        Me.FDMRight_printing_speed.Location = New System.Drawing.Point(352, 167)
         Me.FDMRight_printing_speed.Name = "FDMRight_printing_speed"
         Me.FDMRight_printing_speed.Size = New System.Drawing.Size(82, 20)
         Me.FDMRight_printing_speed.TabIndex = 64
@@ -417,7 +432,7 @@ Partial Class Form1
         '
         Me.TextBox50.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox50.Enabled = False
-        Me.TextBox50.Location = New System.Drawing.Point(661, 136)
+        Me.TextBox50.Location = New System.Drawing.Point(656, 136)
         Me.TextBox50.Name = "TextBox50"
         Me.TextBox50.Size = New System.Drawing.Size(101, 20)
         Me.TextBox50.TabIndex = 63
@@ -426,7 +441,7 @@ Partial Class Form1
         'FDMLeft_dwell_time
         '
         Me.FDMLeft_dwell_time.Enabled = False
-        Me.FDMLeft_dwell_time.Location = New System.Drawing.Point(555, 136)
+        Me.FDMLeft_dwell_time.Location = New System.Drawing.Point(550, 136)
         Me.FDMLeft_dwell_time.Name = "FDMLeft_dwell_time"
         Me.FDMLeft_dwell_time.Size = New System.Drawing.Size(100, 20)
         Me.FDMLeft_dwell_time.TabIndex = 62
@@ -436,7 +451,7 @@ Partial Class Form1
         '
         Me.TextBox48.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox48.Enabled = False
-        Me.TextBox48.Location = New System.Drawing.Point(447, 136)
+        Me.TextBox48.Location = New System.Drawing.Point(442, 136)
         Me.TextBox48.Name = "TextBox48"
         Me.TextBox48.Size = New System.Drawing.Size(101, 20)
         Me.TextBox48.TabIndex = 61
@@ -445,7 +460,7 @@ Partial Class Form1
         'FDMLeft_printing_speed
         '
         Me.FDMLeft_printing_speed.Enabled = False
-        Me.FDMLeft_printing_speed.Location = New System.Drawing.Point(357, 136)
+        Me.FDMLeft_printing_speed.Location = New System.Drawing.Point(352, 136)
         Me.FDMLeft_printing_speed.Name = "FDMLeft_printing_speed"
         Me.FDMLeft_printing_speed.Size = New System.Drawing.Size(82, 20)
         Me.FDMLeft_printing_speed.TabIndex = 60
@@ -455,7 +470,7 @@ Partial Class Form1
         '
         Me.TextBox46.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox46.Enabled = False
-        Me.TextBox46.Location = New System.Drawing.Point(661, 104)
+        Me.TextBox46.Location = New System.Drawing.Point(656, 104)
         Me.TextBox46.Name = "TextBox46"
         Me.TextBox46.Size = New System.Drawing.Size(101, 20)
         Me.TextBox46.TabIndex = 59
@@ -464,7 +479,7 @@ Partial Class Form1
         'DIWRight_dwell_time
         '
         Me.DIWRight_dwell_time.Enabled = False
-        Me.DIWRight_dwell_time.Location = New System.Drawing.Point(555, 104)
+        Me.DIWRight_dwell_time.Location = New System.Drawing.Point(550, 104)
         Me.DIWRight_dwell_time.Name = "DIWRight_dwell_time"
         Me.DIWRight_dwell_time.Size = New System.Drawing.Size(100, 20)
         Me.DIWRight_dwell_time.TabIndex = 58
@@ -474,7 +489,7 @@ Partial Class Form1
         '
         Me.TextBox44.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox44.Enabled = False
-        Me.TextBox44.Location = New System.Drawing.Point(447, 104)
+        Me.TextBox44.Location = New System.Drawing.Point(442, 104)
         Me.TextBox44.Name = "TextBox44"
         Me.TextBox44.Size = New System.Drawing.Size(101, 20)
         Me.TextBox44.TabIndex = 57
@@ -483,7 +498,7 @@ Partial Class Form1
         'DIWRight_printing_speed
         '
         Me.DIWRight_printing_speed.Enabled = False
-        Me.DIWRight_printing_speed.Location = New System.Drawing.Point(357, 104)
+        Me.DIWRight_printing_speed.Location = New System.Drawing.Point(352, 104)
         Me.DIWRight_printing_speed.Name = "DIWRight_printing_speed"
         Me.DIWRight_printing_speed.Size = New System.Drawing.Size(82, 20)
         Me.DIWRight_printing_speed.TabIndex = 56
@@ -492,7 +507,7 @@ Partial Class Form1
         'UVCureSpeed
         '
         Me.UVCureSpeed.Enabled = False
-        Me.UVCureSpeed.Location = New System.Drawing.Point(661, 72)
+        Me.UVCureSpeed.Location = New System.Drawing.Point(656, 72)
         Me.UVCureSpeed.Name = "UVCureSpeed"
         Me.UVCureSpeed.Size = New System.Drawing.Size(101, 20)
         Me.UVCureSpeed.TabIndex = 55
@@ -501,7 +516,7 @@ Partial Class Form1
         'DIWLeft_dwell_time
         '
         Me.DIWLeft_dwell_time.Enabled = False
-        Me.DIWLeft_dwell_time.Location = New System.Drawing.Point(555, 72)
+        Me.DIWLeft_dwell_time.Location = New System.Drawing.Point(550, 72)
         Me.DIWLeft_dwell_time.Name = "DIWLeft_dwell_time"
         Me.DIWLeft_dwell_time.Size = New System.Drawing.Size(100, 20)
         Me.DIWLeft_dwell_time.TabIndex = 54
@@ -511,7 +526,7 @@ Partial Class Form1
         '
         Me.TextBox40.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox40.Enabled = False
-        Me.TextBox40.Location = New System.Drawing.Point(447, 72)
+        Me.TextBox40.Location = New System.Drawing.Point(442, 72)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.Size = New System.Drawing.Size(101, 20)
         Me.TextBox40.TabIndex = 53
@@ -520,7 +535,7 @@ Partial Class Form1
         'DIWLeft_printing_speed
         '
         Me.DIWLeft_printing_speed.Enabled = False
-        Me.DIWLeft_printing_speed.Location = New System.Drawing.Point(357, 72)
+        Me.DIWLeft_printing_speed.Location = New System.Drawing.Point(352, 72)
         Me.DIWLeft_printing_speed.Name = "DIWLeft_printing_speed"
         Me.DIWLeft_printing_speed.Size = New System.Drawing.Size(82, 20)
         Me.DIWLeft_printing_speed.TabIndex = 52
@@ -530,7 +545,7 @@ Partial Class Form1
         '
         Me.TextBox38.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox38.Enabled = False
-        Me.TextBox38.Location = New System.Drawing.Point(661, 38)
+        Me.TextBox38.Location = New System.Drawing.Point(656, 38)
         Me.TextBox38.Name = "TextBox38"
         Me.TextBox38.Size = New System.Drawing.Size(101, 20)
         Me.TextBox38.TabIndex = 51
@@ -539,7 +554,7 @@ Partial Class Form1
         'Optomec_dwell_time
         '
         Me.Optomec_dwell_time.Enabled = False
-        Me.Optomec_dwell_time.Location = New System.Drawing.Point(555, 38)
+        Me.Optomec_dwell_time.Location = New System.Drawing.Point(550, 38)
         Me.Optomec_dwell_time.Name = "Optomec_dwell_time"
         Me.Optomec_dwell_time.Size = New System.Drawing.Size(100, 20)
         Me.Optomec_dwell_time.TabIndex = 50
@@ -547,7 +562,7 @@ Partial Class Form1
         '
         'NonPrintingSpeed
         '
-        Me.NonPrintingSpeed.Location = New System.Drawing.Point(447, 38)
+        Me.NonPrintingSpeed.Location = New System.Drawing.Point(442, 38)
         Me.NonPrintingSpeed.Name = "NonPrintingSpeed"
         Me.NonPrintingSpeed.Size = New System.Drawing.Size(101, 20)
         Me.NonPrintingSpeed.TabIndex = 49
@@ -556,7 +571,7 @@ Partial Class Form1
         'Optomec_printing_speed
         '
         Me.Optomec_printing_speed.Enabled = False
-        Me.Optomec_printing_speed.Location = New System.Drawing.Point(357, 38)
+        Me.Optomec_printing_speed.Location = New System.Drawing.Point(352, 38)
         Me.Optomec_printing_speed.Name = "Optomec_printing_speed"
         Me.Optomec_printing_speed.Size = New System.Drawing.Size(82, 20)
         Me.Optomec_printing_speed.TabIndex = 48
@@ -565,7 +580,7 @@ Partial Class Form1
         'TextBox34
         '
         Me.TextBox34.Enabled = False
-        Me.TextBox34.Location = New System.Drawing.Point(661, 3)
+        Me.TextBox34.Location = New System.Drawing.Point(656, 3)
         Me.TextBox34.Name = "TextBox34"
         Me.TextBox34.Size = New System.Drawing.Size(100, 20)
         Me.TextBox34.TabIndex = 47
@@ -575,7 +590,7 @@ Partial Class Form1
         'TextBox33
         '
         Me.TextBox33.Enabled = False
-        Me.TextBox33.Location = New System.Drawing.Point(555, 3)
+        Me.TextBox33.Location = New System.Drawing.Point(550, 3)
         Me.TextBox33.Name = "TextBox33"
         Me.TextBox33.Size = New System.Drawing.Size(100, 20)
         Me.TextBox33.TabIndex = 46
@@ -585,7 +600,7 @@ Partial Class Form1
         'TextBox32
         '
         Me.TextBox32.Enabled = False
-        Me.TextBox32.Location = New System.Drawing.Point(447, 3)
+        Me.TextBox32.Location = New System.Drawing.Point(442, 3)
         Me.TextBox32.Name = "TextBox32"
         Me.TextBox32.Size = New System.Drawing.Size(101, 20)
         Me.TextBox32.TabIndex = 45
@@ -595,7 +610,7 @@ Partial Class Form1
         'TextBox31
         '
         Me.TextBox31.Enabled = False
-        Me.TextBox31.Location = New System.Drawing.Point(357, 3)
+        Me.TextBox31.Location = New System.Drawing.Point(352, 3)
         Me.TextBox31.Name = "TextBox31"
         Me.TextBox31.Size = New System.Drawing.Size(82, 20)
         Me.TextBox31.TabIndex = 44
@@ -606,7 +621,7 @@ Partial Class Form1
         '
         Me.TextBox29.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox29.Enabled = False
-        Me.TextBox29.Location = New System.Drawing.Point(264, 198)
+        Me.TextBox29.Location = New System.Drawing.Point(259, 198)
         Me.TextBox29.Name = "TextBox29"
         Me.TextBox29.Size = New System.Drawing.Size(82, 20)
         Me.TextBox29.TabIndex = 43
@@ -616,7 +631,7 @@ Partial Class Form1
         '
         Me.TextBox25.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox25.Enabled = False
-        Me.TextBox25.Location = New System.Drawing.Point(264, 167)
+        Me.TextBox25.Location = New System.Drawing.Point(259, 167)
         Me.TextBox25.Name = "TextBox25"
         Me.TextBox25.Size = New System.Drawing.Size(82, 20)
         Me.TextBox25.TabIndex = 42
@@ -626,7 +641,7 @@ Partial Class Form1
         '
         Me.TextBox21.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox21.Enabled = False
-        Me.TextBox21.Location = New System.Drawing.Point(264, 136)
+        Me.TextBox21.Location = New System.Drawing.Point(259, 136)
         Me.TextBox21.Name = "TextBox21"
         Me.TextBox21.Size = New System.Drawing.Size(82, 20)
         Me.TextBox21.TabIndex = 41
@@ -635,7 +650,7 @@ Partial Class Form1
         'TextBox28
         '
         Me.TextBox28.Enabled = False
-        Me.TextBox28.Location = New System.Drawing.Point(167, 198)
+        Me.TextBox28.Location = New System.Drawing.Point(162, 198)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(86, 20)
         Me.TextBox28.TabIndex = 40
@@ -644,7 +659,7 @@ Partial Class Form1
         'TextBox27
         '
         Me.TextBox27.Enabled = False
-        Me.TextBox27.Location = New System.Drawing.Point(72, 198)
+        Me.TextBox27.Location = New System.Drawing.Point(70, 198)
         Me.TextBox27.Name = "TextBox27"
         Me.TextBox27.Size = New System.Drawing.Size(86, 20)
         Me.TextBox27.TabIndex = 39
@@ -653,7 +668,7 @@ Partial Class Form1
         'FDMRight_y_offset
         '
         Me.FDMRight_y_offset.Enabled = False
-        Me.FDMRight_y_offset.Location = New System.Drawing.Point(167, 167)
+        Me.FDMRight_y_offset.Location = New System.Drawing.Point(162, 167)
         Me.FDMRight_y_offset.Name = "FDMRight_y_offset"
         Me.FDMRight_y_offset.Size = New System.Drawing.Size(86, 20)
         Me.FDMRight_y_offset.TabIndex = 37
@@ -662,7 +677,7 @@ Partial Class Form1
         'FDMRight_x_offset
         '
         Me.FDMRight_x_offset.Enabled = False
-        Me.FDMRight_x_offset.Location = New System.Drawing.Point(72, 167)
+        Me.FDMRight_x_offset.Location = New System.Drawing.Point(70, 167)
         Me.FDMRight_x_offset.Name = "FDMRight_x_offset"
         Me.FDMRight_x_offset.Size = New System.Drawing.Size(86, 20)
         Me.FDMRight_x_offset.TabIndex = 36
@@ -671,7 +686,7 @@ Partial Class Form1
         'FDMLeft_y_offset
         '
         Me.FDMLeft_y_offset.Enabled = False
-        Me.FDMLeft_y_offset.Location = New System.Drawing.Point(167, 136)
+        Me.FDMLeft_y_offset.Location = New System.Drawing.Point(162, 136)
         Me.FDMLeft_y_offset.Name = "FDMLeft_y_offset"
         Me.FDMLeft_y_offset.Size = New System.Drawing.Size(86, 20)
         Me.FDMLeft_y_offset.TabIndex = 34
@@ -680,7 +695,7 @@ Partial Class Form1
         'FDMLeft_x_offset
         '
         Me.FDMLeft_x_offset.Enabled = False
-        Me.FDMLeft_x_offset.Location = New System.Drawing.Point(72, 136)
+        Me.FDMLeft_x_offset.Location = New System.Drawing.Point(70, 136)
         Me.FDMLeft_x_offset.Name = "FDMLeft_x_offset"
         Me.FDMLeft_x_offset.Size = New System.Drawing.Size(86, 20)
         Me.FDMLeft_x_offset.TabIndex = 33
@@ -690,7 +705,7 @@ Partial Class Form1
         '
         Me.TextBox17.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.TextBox17.Enabled = False
-        Me.TextBox17.Location = New System.Drawing.Point(264, 104)
+        Me.TextBox17.Location = New System.Drawing.Point(259, 104)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(82, 20)
         Me.TextBox17.TabIndex = 32
@@ -699,7 +714,7 @@ Partial Class Form1
         'DIWRight_y_offset
         '
         Me.DIWRight_y_offset.Enabled = False
-        Me.DIWRight_y_offset.Location = New System.Drawing.Point(167, 104)
+        Me.DIWRight_y_offset.Location = New System.Drawing.Point(162, 104)
         Me.DIWRight_y_offset.Name = "DIWRight_y_offset"
         Me.DIWRight_y_offset.Size = New System.Drawing.Size(86, 20)
         Me.DIWRight_y_offset.TabIndex = 31
@@ -708,7 +723,7 @@ Partial Class Form1
         'DIWRight_x_offset
         '
         Me.DIWRight_x_offset.Enabled = False
-        Me.DIWRight_x_offset.Location = New System.Drawing.Point(72, 104)
+        Me.DIWRight_x_offset.Location = New System.Drawing.Point(70, 104)
         Me.DIWRight_x_offset.Name = "DIWRight_x_offset"
         Me.DIWRight_x_offset.Size = New System.Drawing.Size(86, 20)
         Me.DIWRight_x_offset.TabIndex = 30
@@ -717,7 +732,7 @@ Partial Class Form1
         'ZZ3_offset
         '
         Me.ZZ3_offset.Enabled = False
-        Me.ZZ3_offset.Location = New System.Drawing.Point(264, 72)
+        Me.ZZ3_offset.Location = New System.Drawing.Point(259, 72)
         Me.ZZ3_offset.Name = "ZZ3_offset"
         Me.ZZ3_offset.Size = New System.Drawing.Size(82, 20)
         Me.ZZ3_offset.TabIndex = 29
@@ -726,7 +741,7 @@ Partial Class Form1
         'DIWLeft_y_offset
         '
         Me.DIWLeft_y_offset.Enabled = False
-        Me.DIWLeft_y_offset.Location = New System.Drawing.Point(167, 72)
+        Me.DIWLeft_y_offset.Location = New System.Drawing.Point(162, 72)
         Me.DIWLeft_y_offset.Name = "DIWLeft_y_offset"
         Me.DIWLeft_y_offset.Size = New System.Drawing.Size(86, 20)
         Me.DIWLeft_y_offset.TabIndex = 28
@@ -735,7 +750,7 @@ Partial Class Form1
         'DIWLeft_x_offset
         '
         Me.DIWLeft_x_offset.Enabled = False
-        Me.DIWLeft_x_offset.Location = New System.Drawing.Point(72, 72)
+        Me.DIWLeft_x_offset.Location = New System.Drawing.Point(70, 72)
         Me.DIWLeft_x_offset.Name = "DIWLeft_x_offset"
         Me.DIWLeft_x_offset.Size = New System.Drawing.Size(86, 20)
         Me.DIWLeft_x_offset.TabIndex = 27
@@ -744,7 +759,7 @@ Partial Class Form1
         'Optomec_z_offset
         '
         Me.Optomec_z_offset.Enabled = False
-        Me.Optomec_z_offset.Location = New System.Drawing.Point(264, 38)
+        Me.Optomec_z_offset.Location = New System.Drawing.Point(259, 38)
         Me.Optomec_z_offset.Name = "Optomec_z_offset"
         Me.Optomec_z_offset.Size = New System.Drawing.Size(82, 20)
         Me.Optomec_z_offset.TabIndex = 26
@@ -753,7 +768,7 @@ Partial Class Form1
         'Optomec_y_offset
         '
         Me.Optomec_y_offset.Enabled = False
-        Me.Optomec_y_offset.Location = New System.Drawing.Point(167, 38)
+        Me.Optomec_y_offset.Location = New System.Drawing.Point(162, 38)
         Me.Optomec_y_offset.Name = "Optomec_y_offset"
         Me.Optomec_y_offset.Size = New System.Drawing.Size(86, 20)
         Me.Optomec_y_offset.TabIndex = 25
@@ -762,16 +777,16 @@ Partial Class Form1
         'ProcessGcode
         '
         Me.ProcessGcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.ProcessGcode.Location = New System.Drawing.Point(670, 391)
+        Me.ProcessGcode.Location = New System.Drawing.Point(1452, 11)
         Me.ProcessGcode.Name = "ProcessGcode"
-        Me.ProcessGcode.Size = New System.Drawing.Size(393, 229)
+        Me.ProcessGcode.Size = New System.Drawing.Size(359, 229)
         Me.ProcessGcode.TabIndex = 10
         Me.ProcessGcode.Text = "Process Gcode"
         Me.ProcessGcode.UseVisualStyleBackColor = True
         '
         'ProcessedGcode
         '
-        Me.ProcessedGcode.Location = New System.Drawing.Point(1069, 276)
+        Me.ProcessedGcode.Location = New System.Drawing.Point(1054, 276)
         Me.ProcessedGcode.Multiline = True
         Me.ProcessedGcode.Name = "ProcessedGcode"
         Me.ProcessedGcode.ReadOnly = True
@@ -781,7 +796,7 @@ Partial Class Form1
         '
         'ExportGCode
         '
-        Me.ExportGCode.Location = New System.Drawing.Point(1069, 246)
+        Me.ExportGCode.Location = New System.Drawing.Point(1054, 246)
         Me.ExportGCode.Name = "ExportGCode"
         Me.ExportGCode.Size = New System.Drawing.Size(377, 24)
         Me.ExportGCode.TabIndex = 12
@@ -982,11 +997,155 @@ Partial Class Form1
         Me.KillInkjet.Text = "Kill Inkjet"
         Me.KillInkjet.UseVisualStyleBackColor = True
         '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(1437, 276)
+        Me.TextBox9.Multiline = True
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
+        Me.TextBox9.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBox9.Size = New System.Drawing.Size(377, 344)
+        Me.TextBox9.TabIndex = 34
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(658, 382)
+        Me.TextBox11.Multiline = True
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.ReadOnly = True
+        Me.TextBox11.Size = New System.Drawing.Size(325, 238)
+        Me.TextBox11.TabIndex = 35
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(670, 391)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(113, 13)
+        Me.Label11.TabIndex = 36
+        Me.Label11.Text = "Photonic Cure Options"
+        '
+        'ExportRobotArmCode
+        '
+        Me.ExportRobotArmCode.Location = New System.Drawing.Point(1437, 246)
+        Me.ExportRobotArmCode.Name = "ExportRobotArmCode"
+        Me.ExportRobotArmCode.Size = New System.Drawing.Size(377, 24)
+        Me.ExportRobotArmCode.TabIndex = 37
+        Me.ExportRobotArmCode.Text = "Export Robot Arm Code"
+        Me.ExportRobotArmCode.UseVisualStyleBackColor = True
+        '
+        'SaveFileDialog2
+        '
+        '
+        'ConnectController
+        '
+        Me.ConnectController.Location = New System.Drawing.Point(327, 12)
+        Me.ConnectController.Name = "ConnectController"
+        Me.ConnectController.Size = New System.Drawing.Size(154, 34)
+        Me.ConnectController.TabIndex = 38
+        Me.ConnectController.Text = "Connect"
+        Me.ConnectController.UseVisualStyleBackColor = True
+        '
+        'HomeX
+        '
+        Me.HomeX.Location = New System.Drawing.Point(327, 52)
+        Me.HomeX.Name = "HomeX"
+        Me.HomeX.Size = New System.Drawing.Size(154, 34)
+        Me.HomeX.TabIndex = 39
+        Me.HomeX.Text = "Home X Axis"
+        Me.HomeX.UseVisualStyleBackColor = True
+        '
+        'MoveXLeft
+        '
+        Me.MoveXLeft.Location = New System.Drawing.Point(487, 52)
+        Me.MoveXLeft.Name = "MoveXLeft"
+        Me.MoveXLeft.Size = New System.Drawing.Size(79, 34)
+        Me.MoveXLeft.TabIndex = 40
+        Me.MoveXLeft.Text = "Left"
+        Me.MoveXLeft.UseVisualStyleBackColor = True
+        '
+        'MoveXRight
+        '
+        Me.MoveXRight.Location = New System.Drawing.Point(572, 52)
+        Me.MoveXRight.Name = "MoveXRight"
+        Me.MoveXRight.Size = New System.Drawing.Size(79, 34)
+        Me.MoveXRight.TabIndex = 41
+        Me.MoveXRight.Text = "Right"
+        Me.MoveXRight.UseVisualStyleBackColor = True
+        '
+        'HomeYAxis
+        '
+        Me.HomeYAxis.Location = New System.Drawing.Point(327, 92)
+        Me.HomeYAxis.Name = "HomeYAxis"
+        Me.HomeYAxis.Size = New System.Drawing.Size(154, 34)
+        Me.HomeYAxis.TabIndex = 42
+        Me.HomeYAxis.Text = "Home Y Axis"
+        Me.HomeYAxis.UseVisualStyleBackColor = True
+        '
+        'MoveYForward
+        '
+        Me.MoveYForward.Location = New System.Drawing.Point(572, 92)
+        Me.MoveYForward.Name = "MoveYForward"
+        Me.MoveYForward.Size = New System.Drawing.Size(79, 34)
+        Me.MoveYForward.TabIndex = 44
+        Me.MoveYForward.Text = "Forward"
+        Me.MoveYForward.UseVisualStyleBackColor = True
+        '
+        'MoveYBack
+        '
+        Me.MoveYBack.Location = New System.Drawing.Point(487, 92)
+        Me.MoveYBack.Name = "MoveYBack"
+        Me.MoveYBack.Size = New System.Drawing.Size(79, 34)
+        Me.MoveYBack.TabIndex = 43
+        Me.MoveYBack.Text = "Back"
+        Me.MoveYBack.UseVisualStyleBackColor = True
+        '
+        'HomeOptomecAxis
+        '
+        Me.HomeOptomecAxis.Location = New System.Drawing.Point(327, 132)
+        Me.HomeOptomecAxis.Name = "HomeOptomecAxis"
+        Me.HomeOptomecAxis.Size = New System.Drawing.Size(154, 34)
+        Me.HomeOptomecAxis.TabIndex = 45
+        Me.HomeOptomecAxis.Text = "Home Optomec Axis"
+        Me.HomeOptomecAxis.UseVisualStyleBackColor = True
+        '
+        'MoveOptomecDown
+        '
+        Me.MoveOptomecDown.Location = New System.Drawing.Point(572, 132)
+        Me.MoveOptomecDown.Name = "MoveOptomecDown"
+        Me.MoveOptomecDown.Size = New System.Drawing.Size(79, 34)
+        Me.MoveOptomecDown.TabIndex = 47
+        Me.MoveOptomecDown.Text = "Down"
+        Me.MoveOptomecDown.UseVisualStyleBackColor = True
+        '
+        'MoveOptomecUp
+        '
+        Me.MoveOptomecUp.Location = New System.Drawing.Point(487, 132)
+        Me.MoveOptomecUp.Name = "MoveOptomecUp"
+        Me.MoveOptomecUp.Size = New System.Drawing.Size(79, 34)
+        Me.MoveOptomecUp.TabIndex = 46
+        Me.MoveOptomecUp.Text = "Up"
+        Me.MoveOptomecUp.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1436, 632)
+        Me.ClientSize = New System.Drawing.Size(1823, 632)
+        Me.Controls.Add(Me.MoveOptomecDown)
+        Me.Controls.Add(Me.MoveOptomecUp)
+        Me.Controls.Add(Me.HomeOptomecAxis)
+        Me.Controls.Add(Me.MoveYForward)
+        Me.Controls.Add(Me.MoveYBack)
+        Me.Controls.Add(Me.HomeYAxis)
+        Me.Controls.Add(Me.MoveXRight)
+        Me.Controls.Add(Me.MoveXLeft)
+        Me.Controls.Add(Me.HomeX)
+        Me.Controls.Add(Me.ConnectController)
+        Me.Controls.Add(Me.ExportRobotArmCode)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.TextBox11)
+        Me.Controls.Add(Me.TextBox9)
         Me.Controls.Add(Me.KillInkjet)
         Me.Controls.Add(Me.StartInkjet)
         Me.Controls.Add(Me.StartingZHeight)
@@ -1112,4 +1271,19 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents StartInkjet As Button
     Friend WithEvents KillInkjet As Button
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents ExportRobotArmCode As Button
+    Friend WithEvents SaveFileDialog2 As SaveFileDialog
+    Friend WithEvents ConnectController As Button
+    Friend WithEvents HomeX As Button
+    Friend WithEvents MoveXLeft As Button
+    Friend WithEvents MoveXRight As Button
+    Friend WithEvents HomeYAxis As Button
+    Friend WithEvents MoveYForward As Button
+    Friend WithEvents MoveYBack As Button
+    Friend WithEvents HomeOptomecAxis As Button
+    Friend WithEvents MoveOptomecDown As Button
+    Friend WithEvents MoveOptomecUp As Button
 End Class

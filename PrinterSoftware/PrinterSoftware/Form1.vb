@@ -1,9 +1,25 @@
-﻿Public Class Form1
+﻿Imports System
+'
+Imports Aerotech.A3200
+Imports Aerotech.A3200.Exceptions
+Imports Aerotech.A3200.Status
+Imports Aerotech.A3200.Variables
+Imports Aerotech.A3200.Tasks
+Imports Aerotech.A3200.Information
+Imports Aerotech.Common
+Imports Aerotech.Common.Collections
+
+
+Public Class Form1
     '
     ' Inkjet process global variable
     '
     Dim xusb_demo As String = "C:\Program Files\Xaar\Scorpion\Source\XUSB Demo\Debug\XUSB Demo.exe"
     Dim InkjetProcess As Process
+    '
+    ' aerotech controller
+    '
+    Dim myController As Controller
     '
     ' This snippet of code handles the import gcode button
     ' it opens a dialog box to find a file 
@@ -91,6 +107,9 @@
         ' more to come
         '
         reader.Close()
+        '
+        ' 
+        '
     End Sub
     '
     ' Export gcode button
@@ -840,7 +859,7 @@
     '
     ' function for writing offsets and other settings
     '
-    Public Function saveSettings()
+    Public Sub saveSettings()
         Dim FileName As String = My.Computer.FileSystem.CurrentDirectory + "\PrintSettings.txt"
         Dim objWriter As New System.IO.StreamWriter(FileName, False)
         '
@@ -897,7 +916,7 @@
         ' close the writer
         '
         objWriter.Close()
-    End Function
+    End Sub
 
     Private Sub StartInkjet_Click(sender As Object, e As EventArgs) Handles StartInkjet.Click
         '
@@ -915,5 +934,152 @@
         ' button to shutdown inkjet software from this software
         '
         InkjetProcess.Kill()
+    End Sub
+
+    Private Sub ExportRobotArmCode_Click(sender As Object, e As EventArgs) Handles ExportRobotArmCode.Click
+        '
+        ' used to save the gcode after processing
+        '
+        SaveFileDialog2.ShowDialog()
+    End Sub
+
+    Private Sub SaveFileDialog2_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles SaveFileDialog2.FileOk
+        '
+        ' TODO
+        '
+        ' make a variable holder for the processed robot arm gcode
+        '
+        'Dim writer As New IO.StreamWriter(SaveFileDialog1.FileName)
+        'writer.Write(ProcessedGcode.Text)
+        'writer.Close()
+    End Sub
+
+    Private Sub ConnectController_Click(sender As Object, e As EventArgs) Handles ConnectController.Click
+        Me.myController = Controller.Connect()
+    End Sub
+
+    Private Sub HomeX_Click(sender As Object, e As EventArgs) Handles HomeX.Click
+        Me.myController.Commands(1).Axes("X").Motion.Enable()
+        Me.myController.Commands(1).Axes("X").Motion.Home()
+    End Sub
+
+    Private Sub MoveXLeft_MouseUp(sender As Object, e As EventArgs) Handles MoveXLeft.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("X", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveXLeft_MouseDown(sender As Object, e As EventArgs) Handles MoveXLeft.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("X", -Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveXRight_MouseUp(sender As Object, e As EventArgs) Handles MoveXRight.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("X", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveXRight_MouseDown(sender As Object, e As EventArgs) Handles MoveXRight.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("X", Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub HomeYAxis_Click(sender As Object, e As EventArgs) Handles HomeYAxis.Click
+        Me.myController.Commands(1).Axes("Y").Motion.Enable()
+        Me.myController.Commands(1).Axes("Y").Motion.Home()
+    End Sub
+
+    Private Sub MoveYBack_MouseUp(sender As Object, e As EventArgs) Handles MoveYBack.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("Y", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveYBack_MouseDown(sender As Object, e As EventArgs) Handles MoveYBack.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("Y", -Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveYForward_MouseUp(sender As Object, e As EventArgs) Handles MoveYForward.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("Y", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveYForward_MouseDown(sender As Object, e As EventArgs) Handles MoveYForward.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("Y", Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub HomeOptomecAxis_Click(sender As Object, e As EventArgs) Handles HomeOptomecAxis.Click
+        Me.myController.Commands(1).Axes("ZZ1").Motion.Enable()
+        Me.myController.Commands(1).Axes("ZZ1").Motion.Home()
+    End Sub
+
+
+
+    Private Sub MoveOptomecUp_MouseDown(sender As Object, e As EventArgs) Handles MoveOptomecUp.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", -Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveOptomecUp_MouseUp(sender As Object, e As EventArgs) Handles MoveOptomecUp.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveOptomecDown_MouseDown(sender As Object, e As EventArgs) Handles MoveOptomecDown.MouseDown
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveOptomecDown_MouseUp(sender As Object, e As EventArgs) Handles MoveOptomecDown.MouseUp
+        Try
+            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
     End Sub
 End Class
