@@ -106,6 +106,7 @@ Public Class Form1
         '
         ' more to come
         '
+
         reader.Close()
         '
         ' 
@@ -318,6 +319,9 @@ Public Class Form1
             End If
             '
             ' Check for UV cure
+            '
+            '
+            ' 6 axis arm
             '
 
         Next
@@ -958,14 +962,27 @@ Public Class Form1
         Me.myController = Controller.Connect()
     End Sub
 
+    Private Sub EnableXAxis_Click(sender As Object, e As EventArgs) Handles EnableXAxis.Click
+        Try
+            Me.myController.Commands.Motion.Enable("X")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable x axis")
+        End Try
+    End Sub
+
     Private Sub HomeX_Click(sender As Object, e As EventArgs) Handles HomeX.Click
-        Me.myController.Commands(1).Axes("X").Motion.Enable()
-        Me.myController.Commands(1).Axes("X").Motion.Home()
+        Try
+            Me.myController.Commands.Motion.Home("X")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in home x axis")
+        End Try
     End Sub
 
     Private Sub MoveXLeft_MouseUp(sender As Object, e As EventArgs) Handles MoveXLeft.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("X", 0)
+            Me.myController.Commands.Motion.FreeRun("X", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -974,7 +991,7 @@ Public Class Form1
 
     Private Sub MoveXLeft_MouseDown(sender As Object, e As EventArgs) Handles MoveXLeft.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("X", -Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("X", -Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -983,7 +1000,7 @@ Public Class Form1
 
     Private Sub MoveXRight_MouseUp(sender As Object, e As EventArgs) Handles MoveXRight.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("X", 0)
+            Me.myController.Commands.Motion.FreeRun("X", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -992,21 +1009,34 @@ Public Class Form1
 
     Private Sub MoveXRight_MouseDown(sender As Object, e As EventArgs) Handles MoveXRight.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("X", Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("X", Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
         End Try
     End Sub
 
+    Private Sub EnableYAxis_Click(sender As Object, e As EventArgs) Handles EnableYAxis.Click
+        Try
+            Me.myController.Commands.Motion.Enable("Y")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable y axis")
+        End Try
+    End Sub
+
     Private Sub HomeYAxis_Click(sender As Object, e As EventArgs) Handles HomeYAxis.Click
-        Me.myController.Commands(1).Axes("Y").Motion.Enable()
-        Me.myController.Commands(1).Axes("Y").Motion.Home()
+        Try
+            Me.myController.Commands.Motion.Home("Y")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in home y axis")
+        End Try
     End Sub
 
     Private Sub MoveYBack_MouseUp(sender As Object, e As EventArgs) Handles MoveYBack.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("Y", 0)
+            Me.myController.Commands.Motion.FreeRun("Y", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1015,7 +1045,7 @@ Public Class Form1
 
     Private Sub MoveYBack_MouseDown(sender As Object, e As EventArgs) Handles MoveYBack.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("Y", -Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("Y", -Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1024,7 +1054,7 @@ Public Class Form1
 
     Private Sub MoveYForward_MouseUp(sender As Object, e As EventArgs) Handles MoveYForward.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("Y", 0)
+            Me.myController.Commands.Motion.FreeRun("Y", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1033,23 +1063,34 @@ Public Class Form1
 
     Private Sub MoveYForward_MouseDown(sender As Object, e As EventArgs) Handles MoveYForward.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("Y", Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("Y", Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
         End Try
     End Sub
 
-    Private Sub HomeOptomecAxis_Click(sender As Object, e As EventArgs) Handles HomeOptomecAxis.Click
-        Me.myController.Commands(1).Axes("ZZ1").Motion.Enable()
-        Me.myController.Commands(1).Axes("ZZ1").Motion.Home()
+    Private Sub EnableOptomec_Click(sender As Object, e As EventArgs) Handles EnableOptomec.Click
+        Try
+            Me.myController.Commands.Motion.Enable("ZZ1")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable optomec axis")
+        End Try
     End Sub
 
-
+    Private Sub HomeOptomecAxis_Click(sender As Object, e As EventArgs) Handles HomeOptomecAxis.Click
+        Try
+            Me.myController.Commands.Motion.Home("ZZ1")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in home optomec axis")
+        End Try
+    End Sub
 
     Private Sub MoveOptomecUp_MouseDown(sender As Object, e As EventArgs) Handles MoveOptomecUp.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", -Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("ZZ1", -Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1058,7 +1099,7 @@ Public Class Form1
 
     Private Sub MoveOptomecUp_MouseUp(sender As Object, e As EventArgs) Handles MoveOptomecUp.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", 0)
+            Me.myController.Commands.Motion.FreeRun("ZZ1", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1067,7 +1108,7 @@ Public Class Form1
 
     Private Sub MoveOptomecDown_MouseDown(sender As Object, e As EventArgs) Handles MoveOptomecDown.MouseDown
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", Double.Parse("25"))
+            Me.myController.Commands.Motion.FreeRun("ZZ1", Double.Parse("25"))
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
@@ -1076,10 +1117,122 @@ Public Class Form1
 
     Private Sub MoveOptomecDown_MouseUp(sender As Object, e As EventArgs) Handles MoveOptomecDown.MouseUp
         Try
-            Me.myController.Commands.Item(1).Motion.FreeRun("ZZ1", 0)
+            Me.myController.Commands.Motion.FreeRun("ZZ1", 0)
         Catch exception As A3200Exception
             ';labelErrorMessage.Text = exception.Message
             Console.WriteLine("Hit exception")
         End Try
+    End Sub
+
+    Private Sub EnableExtrusion_Click(sender As Object, e As EventArgs) Handles EnableExtrusion.Click
+        Try
+            Me.myController.Commands.Motion.Enable("ZZ3")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable extrusion axis")
+        End Try
+    End Sub
+
+    Private Sub HomeExtrusion_Click(sender As Object, e As EventArgs) Handles HomeExtrusion.Click
+        Try
+            Me.myController.Commands.Motion.Home("ZZ3")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in home extrusion axis")
+        End Try
+    End Sub
+
+    Private Sub MoveExtrusionUp_MouseDown(sender As Object, e As EventArgs) Handles MoveExtrusionUp.MouseDown
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ3", -Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveExtrusionUp_MouseUp(sender As Object, e As EventArgs) Handles MoveExtrusionUp.MouseUp
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ3", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveExtrusionDown_MouseDown(sender As Object, e As EventArgs) Handles MoveExtrusionDown.MouseDown
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ3", Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveExtrusionDown_MouseUp(sender As Object, e As EventArgs) Handles MoveExtrusionDown.MouseUp
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ3", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub EnableInkjet_Click(sender As Object, e As EventArgs) Handles EnableInkjet.Click
+        Try
+            Me.myController.Commands.Motion.Enable("ZZ4")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable inkjet axis")
+        End Try
+    End Sub
+
+    Private Sub HomeInkjet_Click(sender As Object, e As EventArgs) Handles HomeInkjet.Click
+        Try
+            Me.myController.Commands.Motion.Home("ZZ4")
+        Catch exception As A3200Exception
+            'labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception in enable inkjet axis")
+        End Try
+    End Sub
+
+    Private Sub MoveInkjetUp_MouseDown(sender As Object, e As EventArgs) Handles MoveInkjetUp.MouseDown
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ4", -Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveInkjetUp_MouseUp(sender As Object, e As EventArgs) Handles MoveInkjetUp.MouseUp
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ4", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveInkjetDown_MouseDown(sender As Object, e As EventArgs) Handles MoveInkjetDown.MouseDown
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ4", Double.Parse("25"))
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub MoveInkjetDown_MouseUp(sender As Object, e As EventArgs) Handles MoveInkjetDown.MouseUp
+        Try
+            Me.myController.Commands.Motion.FreeRun("ZZ4", 0)
+        Catch exception As A3200Exception
+            ';labelErrorMessage.Text = exception.Message
+            Console.WriteLine("Hit exception")
+        End Try
+    End Sub
+
+    Private Sub RobotWindow_Button_Click(sender As Object, e As EventArgs) Handles RobotWindow_Button.Click
+        RobotWindow.Show()
     End Sub
 End Class

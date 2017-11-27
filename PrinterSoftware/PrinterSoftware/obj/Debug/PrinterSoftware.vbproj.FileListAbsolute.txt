@@ -50,3 +50,4 @@ C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\fr\Aerotech.A3200.resources.dll
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\ja\Aerotech.A3200.resources.dll
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\zh-CN\Aerotech.A3200.resources.dll
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.RobotWindow.resources
