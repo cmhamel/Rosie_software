@@ -51,3 +51,22 @@ C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\ja\Aerotech.A3200.resources.dll
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\zh-CN\Aerotech.A3200.resources.dll
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.RobotWindow.resources
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.exe.config
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.exe
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.pdb
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\PrinterSoftware.xml
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\Aerotech.A3200.xml
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\Aerotech.Common.xml
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\de\Aerotech.A3200.resources.dll
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\fr\Aerotech.A3200.resources.dll
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\ja\Aerotech.A3200.resources.dll
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\bin\Debug\zh-CN\Aerotech.A3200.resources.dll
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbprojResolveAssemblyReference.cache
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Form1.resources
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Resources.resources
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.RobotWindow.resources
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.GenerateResource.Cache
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.CoreCompileInputs.cache
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.exe
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.xml
+E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.pdb
