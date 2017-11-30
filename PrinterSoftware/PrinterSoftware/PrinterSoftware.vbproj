@@ -54,6 +54,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Aerotech\A3200\DotNet\Aerotech.Common.dll</HintPath>
     </Reference>
+    <Reference Include="RCAPINet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0487594b04a8fcc0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\EpsonRC70\exe\RCAPINet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />

@@ -70,3 +70,4 @@ E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\Printer
 E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.exe
 E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.xml
 E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.pdb
+C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\RCAPINet.dll
