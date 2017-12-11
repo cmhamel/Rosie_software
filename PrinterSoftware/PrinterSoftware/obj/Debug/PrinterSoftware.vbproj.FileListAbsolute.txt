@@ -71,3 +71,12 @@ E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\Printer
 E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.xml
 E:\Google Drive\Georgia Tech\Research\Printer Programs\Printer Interface\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.pdb
 C:\Users\droach6\Documents\GitHub\Rosie_software\PrinterSoftware\PrinterSoftware\bin\Debug\RCAPINet.dll
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbprojResolveAssemblyReference.cache
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Form1.resources
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.Resources.resources
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.RobotWindow.resources
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.GenerateResource.Cache
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.vbproj.CoreCompileInputs.cache
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.exe
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.xml
+C:\Users\litwinsh\Source\Repos\Rosie_software\PrinterSoftware\PrinterSoftware\obj\Debug\PrinterSoftware.pdb

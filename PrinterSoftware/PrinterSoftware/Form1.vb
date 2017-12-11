@@ -333,6 +333,7 @@ Public Class Form1
     ' Process the gcode here
     '
     Private Sub ProcessGcode_Click(sender As Object, e As EventArgs) Handles ProcessGcode.Click
+
         '
         ' post is where the g code lines are written to
         '
@@ -555,6 +556,16 @@ Public Class Form1
         '
         Dim Ts As Short
         '
+        ' Determine if robot has actions
+        '
+        Dim robot_has_actions As Boolean = False
+        Dim current_print_layer As Double
+        Dim robot_action_index As Integer
+        If (RobotWindow.robot_action_layers.Count > 0) Then
+            robot_has_actions = True
+            robot_action_index = 0
+        End If
+        '
         ' begin loop over all lines
         '
         For Each item In lines
@@ -562,150 +573,167 @@ Public Class Form1
                 '
                 ' do nothing here
                 '
+            ElseIf item.Contains(";layer") And (robot_has_actions) Then
+                '
+                ' Checks of there is robot movement at the beginning of the layer
+                ' Pauses the print for the robot
+                '
+                current_print_layer = Convert.ToDouble(item.Last)
+                If (RobotWindow.robot_action_layers(robot_action_index) = current_print_layer) Then
+                    post.Add("'")
+                    post.Add("' Pause print for robot")
+                    post.Add("'")
+                    post.Add("PROGRAM PAUSE")
+                    post.Add("'")
+                    post.Add("' Robot movements finished")
+                    post.Add("'")
+                    robot_action_index = robot_action_index + 1
+                End If
+
             ElseIf item.IndexOf("T") = 1 Then
-                '
-                ' this denotes a tool change
-                '
-                If item.Contains("T7") Then
                     '
-                    ' this is optomec tool change
+                    ' this denotes a tool change
                     '
-                    If pState = 5 Then
-                        post.Add("$DO[8].X = 0")
+                    If item.Contains("T7") Then
+                        '
+                        ' this is optomec tool change
+                        '
+                        If pState = 5 Then
+                            post.Add("$DO[8].X = 0")
+                        End If
+                        '
+                        xoff = Convert.ToDouble(Optomec_x_offset.Text)
+                        yoff = Convert.ToDouble(Optomec_y_offset.Text)
+                        zoff = Convert.ToDouble(Optomec_z_offset.Text)
+                        '
+                        printing_speed = Optomec_printing_speed.Text
+                        '
+                        dwell_time = Optomec_dwell_time.Text
+                        '
+                        Ts = 0
+                        '
+                        dig0 = "8"
+                        '
+                        ZAxis = "ZZ1"
+                        '
+                    ElseIf item.Contains("T1") Then
+                        ' 
+                        ' DIW Left tool change
+                        '
+                        xoff = Convert.ToDouble(DIWLeft_x_offset.Text)
+                        yoff = Convert.ToDouble(DIWLeft_y_offset.Text)
+                        zoff = Convert.ToDouble(ZZ3_offset.Text)
+                        '
+                        printing_speed = DIWLeft_printing_speed.Text
+                        '
+                        dwell_time = DIWLeft_dwell_time.Text
+                        '
+                        post.Add("'")
+                        post.Add("' Switching tool to Left syringe")
+                        post.Add("'")
+                        post.Add("$DO[0].X = 1")
+                        post.Add("$DO[1].X = 0")
+                        post.Add("'")
+                        post.Add("' Begin Pause")
+                        post.Add("'")
+                        post.Add("PROGRAM PAUSE ")
+                        post.Add("DWELL 2")
+                        post.Add("'")
+                        post.Add("' End Pause")
+                        post.Add("'")
+                        '
+                        Ts = 1
+                        '
+                        dig0 = "9"
+                        '
+                        ZAxis = "ZZ3"
+                        '
+                    ElseIf item.Contains("T2") Then
+                        '
+                        ' DIW Right tool change
+                        '
+                        xoff = Convert.ToDouble(DIWRight_x_offset.Text)
+                        yoff = Convert.ToDouble(DIWRight_y_offset.Text)
+                        zoff = Convert.ToDouble(ZZ3_offset.Text)
+                        '
+                        printing_speed = DIWRight_printing_speed.Text
+                        '
+                        dwell_time = DIWRight_dwell_time.Text
+                        '
+                        post.Add("'")
+                        post.Add("' Switching tool to Right syringe")
+                        post.Add("'")
+                        post.Add("$DO[0].X = 0")
+                        post.Add("$DO[1].X = 1")
+                        post.Add("'")
+                        post.Add("' Begin Pause")
+                        post.Add("'")
+                        post.Add("PROGRAM PAUSE ")
+                        post.Add("DWELL 2")
+                        post.Add("'")
+                        post.Add("' End Pause")
+                        post.Add("'")
+                        '
+                        Ts = 2
+                        '
+                        dig0 = "9"
+                        '
+                        ZAxis = "ZZ3"
+                        '
+                    ElseIf item.Contains("T3") Then
+                        '
+                        ' FDM Left tool change
+                        '
+                        xoff = Convert.ToDouble(FDMLeft_x_offset.Text)
+                        yoff = Convert.ToDouble(FDMLeft_y_offset.Text)
+                        zoff = Convert.ToDouble(ZZ3_offset.Text)
+                        '
+                        printing_speed = FDMLeft_printing_speed.Text
+                        '
+                        dwell_time = FDMLeft_dwell_time.Text
+                        '
+                        Ts = 3
+                        '
+                        ZAxis = "ZZ3"
+                        '
+                    ElseIf item.Contains("T4") Then
+                        '
+                        ' FDM Right tool change
+                        '
+                        xoff = Convert.ToDouble(FDMRight_x_offset.Text)
+                        yoff = Convert.ToDouble(FDMRight_y_offset.Text)
+                        zoff = Convert.ToDouble(ZZ3_offset.Text)
+                        '
+                        printing_speed = FDMRight_printing_speed.Text
+                        '
+                        dwell_time = FDMRight_dwell_time.Text
+                        '
+                        Ts = 4
+                        '
+                        ZAxis = "ZZ3"
+                        '
+                    ElseIf item.Contains("T5") Then
+                        '
+                        ' Pick and Place tool change
+                        '
+
+                        Ts = 5
+                        '
+                    ElseIf item.Contains("T6") Then
+                        '
+                        ' Inkjet tool change
+                        '
+                        ' nothing needs to be done here it will all be handled by the inkjet software
+                        '
                     End If
                     '
-                    xoff = Convert.ToDouble(Optomec_x_offset.Text)
-                    yoff = Convert.ToDouble(Optomec_y_offset.Text)
-                    zoff = Convert.ToDouble(Optomec_z_offset.Text)
+                ElseIf item.Contains("X") Or
+                       item.Contains("Y") Or
+                       item.Contains("Z") Then
                     '
-                    printing_speed = Optomec_printing_speed.Text
+                    ' this denotes a tool path
                     '
-                    dwell_time = Optomec_dwell_time.Text
-                    '
-                    Ts = 0
-                    '
-                    dig0 = "8"
-                    '
-                    ZAxis = "ZZ1"
-                    '
-                ElseIf item.Contains("T1") Then
-                    ' 
-                    ' DIW Left tool change
-                    '
-                    xoff = Convert.ToDouble(DIWLeft_x_offset.Text)
-                    yoff = Convert.ToDouble(DIWLeft_y_offset.Text)
-                    zoff = Convert.ToDouble(ZZ3_offset.Text)
-                    '
-                    printing_speed = DIWLeft_printing_speed.Text
-                    '
-                    dwell_time = DIWLeft_dwell_time.Text
-                    '
-                    post.Add("'")
-                    post.Add("' Switching tool to Left syringe")
-                    post.Add("'")
-                    post.Add("$DO[0].X = 1")
-                    post.Add("$DO[1].X = 0")
-                    post.Add("'")
-                    post.Add("' Begin Pause")
-                    post.Add("'")
-                    post.Add("PROGRAM PAUSE ")
-                    post.Add("DWELL 2")
-                    post.Add("'")
-                    post.Add("' End Pause")
-                    post.Add("'")
-                    '
-                    Ts = 1
-                    '
-                    dig0 = "9"
-                    '
-                    ZAxis = "ZZ3"
-                    '
-                ElseIf item.Contains("T2") Then
-                    '
-                    ' DIW Right tool change
-                    '
-                    xoff = Convert.ToDouble(DIWRight_x_offset.Text)
-                    yoff = Convert.ToDouble(DIWRight_y_offset.Text)
-                    zoff = Convert.ToDouble(ZZ3_offset.Text)
-                    '
-                    printing_speed = DIWRight_printing_speed.Text
-                    '
-                    dwell_time = DIWRight_dwell_time.Text
-                    '
-                    post.Add("'")
-                    post.Add("' Switching tool to Right syringe")
-                    post.Add("'")
-                    post.Add("$DO[0].X = 0")
-                    post.Add("$DO[1].X = 1")
-                    post.Add("'")
-                    post.Add("' Begin Pause")
-                    post.Add("'")
-                    post.Add("PROGRAM PAUSE ")
-                    post.Add("DWELL 2")
-                    post.Add("'")
-                    post.Add("' End Pause")
-                    post.Add("'")
-                    '
-                    Ts = 2
-                    '
-                    dig0 = "9"
-                    '
-                    ZAxis = "ZZ3"
-                    '
-                ElseIf item.Contains("T3") Then
-                    '
-                    ' FDM Left tool change
-                    '
-                    xoff = Convert.ToDouble(FDMLeft_x_offset.Text)
-                    yoff = Convert.ToDouble(FDMLeft_y_offset.Text)
-                    zoff = Convert.ToDouble(ZZ3_offset.Text)
-                    '
-                    printing_speed = FDMLeft_printing_speed.Text
-                    '
-                    dwell_time = FDMLeft_dwell_time.Text
-                    '
-                    Ts = 3
-                    '
-                    ZAxis = "ZZ3"
-                    '
-                ElseIf item.Contains("T4") Then
-                    '
-                    ' FDM Right tool change
-                    '
-                    xoff = Convert.ToDouble(FDMRight_x_offset.Text)
-                    yoff = Convert.ToDouble(FDMRight_y_offset.Text)
-                    zoff = Convert.ToDouble(ZZ3_offset.Text)
-                    '
-                    printing_speed = FDMRight_printing_speed.Text
-                    '
-                    dwell_time = FDMRight_dwell_time.Text
-                    '
-                    Ts = 4
-                    '
-                    ZAxis = "ZZ3"
-                    '
-                ElseIf item.Contains("T5") Then
-                    '
-                    ' Pick and Place tool change
-                    '
-
-                    Ts = 5
-                    '
-                ElseIf item.Contains("T6") Then
-                    '
-                    ' Inkjet tool change
-                    '
-                    ' nothing needs to be done here it will all be handled by the inkjet software
-                    '
-                End If
-                '
-            ElseIf item.Contains("X") Or
-                   item.Contains("Y") Or
-                   item.Contains("Z") Then
-                '
-                ' this denotes a tool path
-                '
-                If item.Contains("X") Then
+                    If item.Contains("X") Then
                     '
                     ' Convert X coordinates to Aerotech printer
                     '
@@ -1235,4 +1263,6 @@ Public Class Form1
     Private Sub RobotWindow_Button_Click(sender As Object, e As EventArgs) Handles RobotWindow_Button.Click
         RobotWindow.Show()
     End Sub
+
+
 End Class

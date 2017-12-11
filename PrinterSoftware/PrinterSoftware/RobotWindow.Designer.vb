@@ -38,13 +38,13 @@ Partial Class RobotWindow
         Me.Reset_Button = New System.Windows.Forms.Button()
         Me.TeachPoint_Button = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Function_Print_ComboBox = New System.Windows.Forms.ComboBox()
+        Me.Function_Print_Label = New System.Windows.Forms.Label()
+        Me.ControlType_ComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.LayerAdd_Button = New System.Windows.Forms.Button()
         Me.Layer_TextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ControlType_ComboBox = New System.Windows.Forms.ComboBox()
-        Me.Function_Print_Label = New System.Windows.Forms.Label()
-        Me.Function_Print_ComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -206,48 +206,14 @@ Partial Class RobotWindow
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Printer Interaction"
         '
-        'LayerAdd_Button
+        'Function_Print_ComboBox
         '
-        Me.LayerAdd_Button.Location = New System.Drawing.Point(9, 122)
-        Me.LayerAdd_Button.Name = "LayerAdd_Button"
-        Me.LayerAdd_Button.Size = New System.Drawing.Size(238, 30)
-        Me.LayerAdd_Button.TabIndex = 2
-        Me.LayerAdd_Button.Text = "Add"
-        Me.LayerAdd_Button.UseVisualStyleBackColor = True
-        '
-        'Layer_TextBox
-        '
-        Me.Layer_TextBox.Location = New System.Drawing.Point(147, 34)
-        Me.Layer_TextBox.Name = "Layer_TextBox"
-        Me.Layer_TextBox.Size = New System.Drawing.Size(100, 22)
-        Me.Layer_TextBox.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 37)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(135, 17)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Add pause at layer: "
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 65)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 17)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Robot control type:"
-        '
-        'ControlType_ComboBox
-        '
-        Me.ControlType_ComboBox.FormattingEnabled = True
-        Me.ControlType_ComboBox.Items.AddRange(New Object() {"Jog", "Function"})
-        Me.ControlType_ComboBox.Location = New System.Drawing.Point(147, 62)
-        Me.ControlType_ComboBox.Name = "ControlType_ComboBox"
-        Me.ControlType_ComboBox.Size = New System.Drawing.Size(100, 24)
-        Me.ControlType_ComboBox.TabIndex = 5
+        Me.Function_Print_ComboBox.FormattingEnabled = True
+        Me.Function_Print_ComboBox.Items.AddRange(New Object() {"main"})
+        Me.Function_Print_ComboBox.Location = New System.Drawing.Point(164, 92)
+        Me.Function_Print_ComboBox.Name = "Function_Print_ComboBox"
+        Me.Function_Print_ComboBox.Size = New System.Drawing.Size(100, 24)
+        Me.Function_Print_ComboBox.TabIndex = 7
         '
         'Function_Print_Label
         '
@@ -258,14 +224,48 @@ Partial Class RobotWindow
         Me.Function_Print_Label.TabIndex = 6
         Me.Function_Print_Label.Text = "Function to run: "
         '
-        'Function_Print_ComboBox
+        'ControlType_ComboBox
         '
-        Me.Function_Print_ComboBox.FormattingEnabled = True
-        Me.Function_Print_ComboBox.Items.AddRange(New Object() {"main"})
-        Me.Function_Print_ComboBox.Location = New System.Drawing.Point(147, 92)
-        Me.Function_Print_ComboBox.Name = "Function_Print_ComboBox"
-        Me.Function_Print_ComboBox.Size = New System.Drawing.Size(100, 24)
-        Me.Function_Print_ComboBox.TabIndex = 7
+        Me.ControlType_ComboBox.FormattingEnabled = True
+        Me.ControlType_ComboBox.Items.AddRange(New Object() {"Jog", "Pick and Place"})
+        Me.ControlType_ComboBox.Location = New System.Drawing.Point(164, 62)
+        Me.ControlType_ComboBox.Name = "ControlType_ComboBox"
+        Me.ControlType_ComboBox.Size = New System.Drawing.Size(100, 24)
+        Me.ControlType_ComboBox.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 65)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(128, 17)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Robot control type:"
+        '
+        'LayerAdd_Button
+        '
+        Me.LayerAdd_Button.Location = New System.Drawing.Point(9, 122)
+        Me.LayerAdd_Button.Name = "LayerAdd_Button"
+        Me.LayerAdd_Button.Size = New System.Drawing.Size(255, 30)
+        Me.LayerAdd_Button.TabIndex = 2
+        Me.LayerAdd_Button.Text = "Add"
+        Me.LayerAdd_Button.UseVisualStyleBackColor = True
+        '
+        'Layer_TextBox
+        '
+        Me.Layer_TextBox.Location = New System.Drawing.Point(164, 34)
+        Me.Layer_TextBox.Name = "Layer_TextBox"
+        Me.Layer_TextBox.Size = New System.Drawing.Size(100, 22)
+        Me.Layer_TextBox.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 37)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(147, 17)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Robot action at layer: "
         '
         'RobotWindow
         '

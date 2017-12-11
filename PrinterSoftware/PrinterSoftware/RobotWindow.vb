@@ -141,6 +141,9 @@ Public Class RobotWindow
         control_type = ControlType_ComboBox.SelectedItem.ToString
         robot_control_types.Add(control_type)
         Console.WriteLine(control_type)
+
+        Console.WriteLine(robot_action_layers)
+        Console.WriteLine(robot_control_types)
     End Sub
 
     Private Sub ControlType_ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ControlType_ComboBox.SelectedIndexChanged
@@ -154,5 +157,6 @@ Public Class RobotWindow
         End If
 
     End Sub
+
 
 End Class
