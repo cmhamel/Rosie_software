@@ -142,8 +142,8 @@ Public Class RobotWindow
         robot_control_types.Add(control_type)
         Console.WriteLine(control_type)
 
-        Console.WriteLine(robot_action_layers)
-        Console.WriteLine(robot_control_types)
+        Console.WriteLine(robot_action_layers.Count)
+        Console.WriteLine(robot_control_types.Count)
     End Sub
 
     Private Sub ControlType_ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ControlType_ComboBox.SelectedIndexChanged
@@ -158,5 +158,10 @@ Public Class RobotWindow
 
     End Sub
 
-
+    Private Sub ClearActions_Button_Click(sender As Object, e As EventArgs) Handles ClearActions_Button.Click
+        robot_action_layers.Clear()
+        robot_control_types.Clear()
+        Console.WriteLine(robot_action_layers.Count)
+        Console.WriteLine(robot_control_types.Count)
+    End Sub
 End Class

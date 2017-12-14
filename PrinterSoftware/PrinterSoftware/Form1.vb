@@ -561,9 +561,12 @@ Public Class Form1
         Dim robot_has_actions As Boolean = False
         Dim current_print_layer As Double
         Dim robot_action_index As Integer
+        Console.WriteLine("robot_action_layers length = " + RobotWindow.robot_action_layers.Count.ToString)
         If (RobotWindow.robot_action_layers.Count > 0) Then
             robot_has_actions = True
+            Console.WriteLine("robot_has_actions = " + robot_has_actions.ToString)
             robot_action_index = 0
+            Console.WriteLine("robot_action_index = " + robot_action_index.ToString)
         End If
         '
         ' begin loop over all lines
@@ -571,26 +574,46 @@ Public Class Form1
         For Each item In lines
             If item.Contains("'") Or item.Contains(";") Or item.Contains("G92") Or item.Contains("M107") Or item.Contains("M104") Then
                 '
-                ' do nothing here
+                ' check for a layer change
                 '
-            ElseIf item.Contains(";layer") And (robot_has_actions) Then
-                '
-                ' Checks of there is robot movement at the beginning of the layer
-                ' Pauses the print for the robot
-                '
-                current_print_layer = Convert.ToDouble(item.Last)
-                If (RobotWindow.robot_action_layers(robot_action_index) = current_print_layer) Then
-                    post.Add("'")
-                    post.Add("' Pause print for robot")
-                    post.Add("'")
-                    post.Add("PROGRAM PAUSE")
-                    post.Add("'")
-                    post.Add("' Robot movements finished")
-                    post.Add("'")
-                    robot_action_index = robot_action_index + 1
+                If item.Contains(";layer") And robot_has_actions Then
+                    '
+                    ' Checks of there is robot movement at the beginning of the layer
+                    ' Pauses the print for the robot
+                    '
+                    Console.WriteLine("found ';layer'")
+                    Dim line_item = item.Remove(0, 7)
+                    Console.WriteLine(line_item)
+                    'Dim first_char As Char = line_item.First
+                    Try
+                        current_print_layer = Convert.ToDouble(line_item)
+                        Console.WriteLine("success " + line_item)
+                        post.Add("'")
+                        post.Add("'Layer Number " + line_item)
+                        post.Add("'")
+                        If (RobotWindow.robot_action_layers(robot_action_index) = current_print_layer) Then
+                            post.Add("'")
+                            post.Add("' Pause print for robot")
+                            post.Add("'")
+                            post.Add("PROGRAM PAUSE")
+                            post.Add("'")
+                            post.Add("' Resume print after robot finishes")
+                            post.Add("'")
+                            robot_action_index = robot_action_index + 1
+
+                            '***Things for Aerotech***
+                            'TASKSTATE_ProgramPaused
+                            'Serial communication? - Probably
+                        End If
+                    Catch ex As Exception
+                        '
+                        'do nothing
+                        '
+                    End Try
+
                 End If
 
-            ElseIf item.IndexOf("T") = 1 Then
+                ElseIf item.IndexOf("T") = 1 Then
                     '
                     ' this denotes a tool change
                     '
@@ -728,8 +751,8 @@ Public Class Form1
                     End If
                     '
                 ElseIf item.Contains("X") Or
-                       item.Contains("Y") Or
-                       item.Contains("Z") Then
+                           item.Contains("Y") Or
+                           item.Contains("Z") Then
                     '
                     ' this denotes a tool path
                     '
